@@ -1,0 +1,54 @@
+PROMPT ĐẶC TẢ DI TICH SO - GOOGLE AI STUDIO BUILD
+================================================
+
+Bạn là kỹ sư React/Node.js và chuyên gia thiết kế UX cho dự án giáo dục phi lợi nhuận. Hãy TẠO VÀ CHẠY một ứng dụng web hoàn chỉnh bằng tiếng Việt. Không dừng ở việc mô tả kế hoạch. Tên ứng dụng: DiTichSo. Tên miền phụ dự kiến khi Publish: ditichso.ai.studio (nếu chưa bị sử dụng).
+
+PHẦN 1 — BỐI CẢNH, MỤC TIÊU
+Dự án A01: “Bản đồ số di tích lịch sử, văn hóa Việt Nam” thuộc chương trình thực tập Đợt 15 FPT Polytechnic × IMTA TECH. Xây dựng ứng dụng cộng đồng cho phép người dùng tìm hiểu các di tích đã được xếp hạng, tập trung vào tính minh bạch và chính xác của kiến thức. Phi lợi nhuận, không quảng cáo, không thu phí, không bắt đăng nhập.
+
+PHẦN 2 — NGƯỜI DÙNG
+Sinh viên, học sinh, giáo viên, người dân và du khách muốn tìm hiểu giá trị di sản Việt Nam. Ưu tiên điện thoại; thao tác đơn giản, font chữ rõ, nút bấm lớn, hỗ trợ người lớn tuổi.
+
+PHẦN 3 — TẤT CẢ CÁC MÀN HÌNH / CHỨC NĂNG
+1. Trang chủ: bố cục bắt mắt, hero giới thiệu “Chạm vào bản đồ. Chạm tới lịch sử.”; nút Mở bản đồ; thống kê chính xác theo dữ liệu có sẵn; 3 thẻ di tích nổi bật; giới thiệu Gemini.
+2. “Khám phá di tích”: thanh tìm kiếm theo tên/giá trị lịch sử; bộ lọc tỉnh thành hiện hành; bộ lọc loại hình (lịch sử, kiến trúc, khảo cổ, danh thắng); nút yêu thích lưu localStorage; thẻ di tích, mở trang hoặc hộp chi tiết.
+3. “Bản đồ di sản”: bản đồ OpenStreetMap với Leaflet; các điểm đánh dấu có popup bấm được; chọn từ danh sách cạnh bản đồ; lọc theo địa phương; phóng to/thu nhỏ; hiển thị tọa độ tham khảo, không giả định là ranh giới di tích.
+4. “Hồ sơ di tích”: mô tả nguồn gốc lịch sử, giai đoạn/niên đại, giá trị tiêu biểu, cấp độ và văn bản xếp hạng, địa phương, tài liệu nguồn bấm mở được; phân biệt UNESCO ghi danh và di tích quốc gia đặc biệt, không đồng nhất hai khái niệm.
+5. “Trợ lý Gemini”: khung hỏi đáp thực sự GỌI API Gemini ở server, có loading, xử lý lỗi, 3 câu hỏi mẫu. Dùng Gemini phân tích và diễn giải chỉ dựa trên dữ liệu các di tích trong dự án, không đưa ra thông tin không có căn cứ; câu trả lời dẫn link nguồn. Nếu chưa đủ dữ liệu nói “Chưa đủ dữ liệu để khẳng định”. Không giả lập hay dùng đáp án cố định rồi gọi đó là Gemini. Chỉ gọi API khi người dùng bấm Gửi; hạn chế tần suất và xử lý vượt hạn mức.
+6. “Nguồn tham khảo”: ít nhất 5 đường dẫn chính thống từ UNESCO / Cục Di sản văn hóa / Cổng thông tin Chính phủ, bấm mở trực tiếp. Có ghi rõ tên và đơn vị công bố nguồn.
+7. “Giới thiệu”: hiển thị CHÍNH XÁC: Họ và tên Trần Mạnh Trường; mã sinh viên PH59448; Nhóm 1; mã ý tưởng A01; tên ứng dụng DiTichSo; chương trình Thực tập sinh Đợt 15 FPT Polytechnic × IMTA TECH; mục tiêu sản phẩm cộng đồng; tên miền dự kiến ditichso.ai.studio.
+
+PHẦN 4 — DỮ LIỆU MẪU VÀ NGUỒN
+Hãy tạo dữ liệu có cấu trúc mỗi bản ghi { id, name, province, type, level, period, summary, history, value, decision, lat, lng, sources }. Bản triển khai đầu tiên có ít nhất 9 địa danh sau:
+- Hoàng thành Thăng Long – Hà Nội, từ thế kỷ XI; UNESCO 2010; xếp hạng quốc gia đặc biệt QĐ 1272/QĐ-TTg 2009. https://whc.unesco.org/en/list/1328
+- Văn Miếu – Quốc Tử Giám – Hà Nội; Văn Miếu 1070, Quốc Tử Giám 1076; xếp hạng quốc gia đặc biệt QĐ 548/QĐ-TTg 2012. https://dsvh.gov.vn/di-tich-lich-su-va-kien-truc-nghe-thuat-van-mieu-quoc-tu-giam-2953
+- Quần thể di tích Cố đô Huế – TP Huế; kinh đô thời Nguyễn 1802–1945; UNESCO 1993. https://whc.unesco.org/en/list/678
+- Đô thị cổ Hội An – TP Đà Nẵng (địa danh trước sáp nhập: Quảng Nam); thương cảng thế kỷ XV–XIX; UNESCO 1999. https://whc.unesco.org/en/list/948
+- Khu đền tháp Mỹ Sơn – TP Đà Nẵng (địa danh trước sáp nhập: Quảng Nam); văn hóa Champa thế kỷ IV–XIII; UNESCO 1999. https://whc.unesco.org/en/list/949
+- Thành nhà Hồ – Thanh Hóa; xây năm 1397; UNESCO 2011. https://whc.unesco.org/en/list/1358
+- Quần thể danh thắng Tràng An – Ninh Bình; di sản hỗn hợp UNESCO 2014; dấu tích cư trú tiền sử nhiều giai đoạn. https://whc.unesco.org/en/list/1438
+- Dinh Độc Lập – TP Hồ Chí Minh; di tích quốc gia đặc biệt xếp hạng 2009; gắn với lịch sử 30/4/1975.
+- Khu di tích lịch sử Đền Hùng – Phú Thọ; di tích quốc gia đặc biệt xếp hạng 2009; gắn với truyền thống tưởng niệm Vua Hùng.
+Nguồn danh mục xếp hạng: https://dsvh.gov.vn/danh-muc-di-tich-quoc-gia-dac-biet-1752
+Nguồn giải thích địa giới từ 2025: https://cms.baochinhphu.vn/nghi-quyet-cua-quoc-hoi-ve-sap-xep-don-vi-hanh-chinh-cap-tinh-102250612191145158.htm
+Thành phố Huế trực thuộc trung ương từ 2025: https://xaydungchinhsach.chinhphu.vn/thanh-lap-thanh-pho-hue-truc-thuoc-trung-uong-tu-1-1-2025-119241130091551714.htm
+Đừng tạo mốc thời gian hay quyết định/hồ sơ xếp hạng chưa kiểm chứng. Nếu không có bằng chứng, để “Chưa có thông tin được kiểm chứng”. Không tùy tiện gán cùng một hồ sơ UNESCO cho di tích khác hoặc một khu vực địa lý rộng hơn.
+
+PHẦN 5 — TÍCH HỢP GEMINI VÀ BẢO MẬT
+React frontend, Node.js backend. Server dùng biến môi trường GEMINI_API_KEY (Secrets của AI Studio), không bao giờ dùng import.meta.env.VITE_GEMINI_API_KEY hay để khóa trong HTML/JS của client. Backend route POST /api/ask nhận câu hỏi dài tối đa 600 ký tự; ngữ cảnh lấy từ dữ liệu di tích được kiểm chứng phía server, không tin dữ liệu nguồn do client gửi; API gọi gemini-2.5-flash. Có rate limit đơn giản, trạng thái loading, lỗi thiếu key/429, timeout; không để lộ khóa API qua thông báo lỗi. Câu trả lời dưới dạng text, không chèn HTML do AI tạo (tránh XSS).
+
+PHẦN 6 — GIAO DIỆN
+Tiếng Việt có dấu UTF-8. UI phong cách hiện đại, cảm hứng di sản: xanh rêu đậm (#153D35), trắng ngà, đất nung (#B97249), vàng be. Menu bên trái màn hình desktop; mobile menu dạng drawer. Trang chủ có minh họa đình/đền theo phong cách đồ họa, bản đồ tương tác Leaflet. Thẻ nội dung rõ ràng, hiệu ứng hover tinh tế, phản hồi trạng thái trống/lỗi; tuyệt đối không giả tạo ảnh di tích và quảng cáo như ảnh tư liệu có thật. Có nút tăng chữ; phông Be Vietnam Pro. Không bị tràn trên điện thoại 375px.
+
+PHẦN 7 — RÀNG BUỘC / KIỂM THỬ
+- Mỗi nút có tác dụng thật; >=3 màn hình hoạt động liên kết.
+- Trang chủ, Khám phá, Bản đồ, Gemini, Nguồn tham khảo, Giới thiệu đều truy cập được.
+- Nhấp điểm bản đồ và chi tiết phải mở đúng di tích.
+- Lọc/tìm kiếm phải trả đúng kết quả, yêu thích giữ qua reload.
+- Mục Nguồn tham khảo >=5 nguồn chính thống và link mở đúng.
+- Gemini phải phản hồi thật sau khi cấu hình server Secrets, câu trả lời không bịa dữ liệu và có nguồn.
+- Không thu dữ liệu nhạy cảm người dùng. Không quảng cáo. Không dùng nội dung sai lệch lịch sử, tôn giáo hay chủ quyền.
+- Kiểm thử desktop/mobile; không lỗi trắng trang hoặc biên dịch; có thể công bố Public Link từ AI Studio.
+- Không in API key vào console hoặc front-end, không in ra gói nguồn tải về.
+
+Hãy triển khai ứng dụng hoàn chỉnh ngay, tạo các tệp cần thiết và bản preview, sau đó kiểm thử lại từng chức năng. Nếu thông tin chưa đủ hãy dùng biểu đạt trung lập, không tự bịa.

@@ -1,0 +1,8 @@
+{
+  "name": "DiTichSo",
+  "description": "Bản đồ số di tích lịch sử, văn hóa Việt Nam - Chạm vào bản đồ. Chạm tới lịch sử.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

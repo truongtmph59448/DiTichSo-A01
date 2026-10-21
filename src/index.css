@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-moss: #153D35;
+    --color-moss-dark: #0F2D27;
+    --color-moss-light: #1D5449;
+    --color-terracotta: #B97249;
+    --color-terracotta-dark: #9A5A35;
+    --color-ochre: #C89B3C;
+    --color-ivory: #FAF7F2;
+    --color-parchment: #F4EFE6;
+  }
+
+  body {
+    font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+    background-color: #FAF7F2;
+    color: #1A2E28;
+  }
+}
+
+/* Accessibility font scale options */
+html.font-scale-standard {
+  font-size: 16px;
+}
+html.font-scale-large {
+  font-size: 18px;
+}
+html.font-scale-xlarge {
+  font-size: 20px;
+}
+
+/* Leaflet map styles */
+.leaflet-container {
+  font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.custom-monument-popup .leaflet-popup-content-wrapper {
+  border-radius: 14px;
+  padding: 6px;
+  box-shadow: 0 14px 28px rgba(21, 61, 53, 0.15), 0 10px 10px rgba(21, 61, 53, 0.1);
+  border: 1px solid #E8DFD1;
+  background: #FAF7F2;
+}
+
+.custom-monument-popup .leaflet-popup-content {
+  margin: 10px 12px;
+  line-height: 1.5;
+}
+
+.custom-monument-popup .leaflet-popup-tip {
+  background: #FAF7F2;
+}
+
+/* Heritage pattern subtle background */
+.heritage-pattern {
+  background-color: #FAF7F2;
+  background-image: radial-gradient(#153D35 0.5px, transparent 0.5px), radial-gradient(#B97249 0.5px, #FAF7F2 0.5px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+  background-opacity: 0.03;
+}
